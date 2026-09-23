@@ -174,7 +174,7 @@ function buildTimeline(template, anchorTime) {
   });
 }
 
-function getDateInDays(days) {
+function getDateInDays(days = 6) {
   const d = new Date();
   d.setDate(d.getDate() + days);
   return d.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
@@ -300,7 +300,7 @@ trackForm.addEventListener('submit', async (event) => {
     courier: base.courier,
     company: base.company,
     location: base.location,
-    estimatedDelivery: base.estimatedDelivery || getDateInDays(base.deliveryDays || 2),
+    estimatedDelivery: getDateInDays(6),
     latestUpdate: base.latestUpdate,
     fee: base.fee || null,
     progress: base.progress,
